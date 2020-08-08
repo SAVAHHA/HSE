@@ -1,16 +1,118 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+﻿пки<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="HSEapp.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="buttonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="#000000" />
+                <Setter Property="BackgroundColor" Value="#80CBC4" />
+                <Setter Property="FontSize" Value="Medium" />
+                <Setter Property="WidthRequest" Value="170"></Setter>
+            </Style>
+        </ResourceDictionary>
+        <DataTemplate x:Name="Projectemplate" x:Key="ProjectTemplate">
+            <Frame BackgroundColor="LightPink" HeightRequest="172" WidthRequest="430" CornerRadius="34">
+                <StackLayout Spacing="3">
+                    <Label Text="Анализ итогов защиты ВКР на Журналистике и Медиакоммуникациях"></Label>
+                    <StackLayout Orientation="Horizontal" Padding="0">
+                        <Label>Рекомендуемые образовательные программы:</Label>
+                        <Label>Журналистика, Медиакоммуникации</Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="0" >
+                        <Label>Срок записи на проект истекает:</Label>
+                        <Label>31 августа 2020 г.</Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="0">
+                        <Label>Сроки реализации проекта:</Label>
+                        <Label>8 июля - 6 августа</Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="0" >
+                        <Label>Количество кредитов:</Label>
+                        <Label>2</Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Padding="0">
+                        <Label>Руководитель:</Label>
+                        <Label>Авдеева Анастасия Владимировна</Label>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" HeightRequest="30" Padding="0">
+                        <Frame BackgroundColor="Gray" CornerRadius="23" Padding="5">
+                            <Label FontSize="Micro">Анализ данных</Label>
+                        </Frame>
+                        <Frame BackgroundColor="Gray" CornerRadius="23" Padding="5">
+                            <Label FontSize="Micro">
+                                Дата-журналистика
+                            </Label>
+                        </Frame>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </DataTemplate>
+
+        </ContentPage.Resources>
 
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <StackLayout Orientation="Horizontal" MinimumWidthRequest="170">
+            <Button Style="{StaticResource buttonStyle}" Text="Что такое проект и как его добавить?" ImageSource="Images/whatisprojectimage.png" ></Button>
+            <Button Style="{StaticResource buttonStyle}" Text="Записаться на обучающий курс"></Button>
+        </StackLayout>
+        <Button Text="Пройти курс онлайн"></Button>
+        <StackLayout Orientation="Horizontal">
+            <Image Source="icon.png" WidthRequest="30"></Image>
+            <Label FontSize="Small">Сортировать по:</Label>
+            <StackLayout HorizontalOptions="EndAndExpand">
+                <Button BackgroundColor="Transparent" Text="дате добавления проекта" FontSize="Micro" HeightRequest="20" Padding="0"></Button>
+                <Button BackgroundColor="Transparent" Text="сроку реализации" FontSize="Micro" Padding="0"></Button>
+                <Button BackgroundColor="Transparent" Text="количеству кредитов" FontSize="Micro" Padding="0"></Button>
+                <Button BackgroundColor="Transparent" Text="сроку записи на проект" FontSize="Micro" Padding="0"></Button>
+            </StackLayout>
+        </StackLayout>
+        <!--<StackLayout x:Name="collectionViewStackLayout" Orientation="Vertical" Spacing="0">
+            <CollectionView x:Name="projectsCollectionView" Margin="10" ItemTemplate="{StaticResource ProjectTemplate}" SelectionMode="Single">
+            </CollectionView>
+        </StackLayout>-->
+        <Frame BackgroundColor="LightPink" HeightRequest="172" WidthRequest="430" CornerRadius="34"> <!---этот фрейм надо удалить потом, когда снимут коммент-->
+            <StackLayout Spacing="3">
+                <Label Text="Анализ итогов защиты ВКР на Журналистике и Медиакоммуникациях"></Label>
+                <StackLayout Orientation="Horizontal" Padding="0">
+                    <Label>Рекомендуемые образовательные программы:</Label>
+                    <Label>Журналистика, Медиакоммуникации</Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="0" >
+                    <Label>Срок записи на проект истекает:</Label>
+                    <Label>31 августа 2020 г.</Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="0">
+                    <Label>Сроки реализации проекта:</Label>
+                    <Label>8 июля - 6 августа</Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="0" >
+                    <Label>Количество кредитов:</Label>
+                    <Label>2</Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Padding="0">
+                    <Label>Руководитель:</Label>
+                    <Label>Авдеева Анастасия Владимировна</Label>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" HeightRequest="30" Padding="0">
+                    <Frame BackgroundColor="Gray" CornerRadius="23" Padding="5">
+                        <Label FontSize="Micro">Анализ данных</Label>
+                    </Frame>
+                    <Frame BackgroundColor="Gray" CornerRadius="23" Padding="5">
+                        <Label FontSize="Micro">
+                            Дата-журналистика
+                        </Label>
+                    </Frame>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+
+
     </StackLayout>
+    
+
 
 </ContentPage>
