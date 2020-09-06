@@ -45,6 +45,22 @@
                     <Label Text="Количество кредитов" Grid.Column="0" Grid.Row="12" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
                     <Label Text="Интенсивность проектой деятельности" Grid.Column="0" Grid.Row="13" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
                     <Label Text="Способ постановки задачи" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+
+                    <Label x:Name="ProjectIdNumberLabel" Grid.Column="1" Grid.Row="0" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label x:Name="CampusLabel" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label x:Name="LeaderLabel" Grid.Column="1" Grid.Row="2" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label x:Name="InitiatingUnitLabel" Grid.Column="1" Grid.Row="3" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label x:Name="ForOPLabel" Grid.Column="1" Grid.Row="4" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label x:Name="ProjectTypeLabel" Grid.Column="1" Grid.Row="5" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label x:Name="EmploymentTypeLabel" Grid.Column="1" Grid.Row="6" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label x:Name="LocationLabel" Grid.Column="1" Grid.Row="7" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label x:Name="CourseLabel" Grid.Column="1" Grid.Row="8" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label x:Name="ProjectPeriodLabel" Grid.Column="1" Grid.Row="9" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label x:Name="JoinUntilLabel" Grid.Column="1" Grid.Row="10" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label x:Name="VacantPlacesLabel" Grid.Column="1" Grid.Row="11" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label x:Name="CreditAmountLabel" Grid.Column="1" Grid.Row="12" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label x:Name="ProjectIntencityLabel" Grid.Column="1" Grid.Row="13" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label x:Name="WayOfSettingProblemLabel" Grid.Column="1" Grid.Row="14" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
                 </Grid>
             </StackLayout>
         </ScrollView>

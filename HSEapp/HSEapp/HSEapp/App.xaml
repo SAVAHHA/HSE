@@ -6,6 +6,10 @@
              mc:Ignorable="d"
              x:Class="HSEapp.App">
     <Application.Resources>
-
+        <DataTemplate x:Key="FairProjectTemplate">
+            <Grid Padding="10">
+                
+            </Grid>
+        </DataTemplate>
     </Application.Resources>
 </Application>
