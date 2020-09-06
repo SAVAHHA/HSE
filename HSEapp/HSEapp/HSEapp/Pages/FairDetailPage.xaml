@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HSEapp.Pages.FairDetailPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Label x:Name="ProjectDescriptionLabel" Margin="10"></Label>
+                
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Идентификационный номер проекта" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label Text="Кампус" Grid.Column="0" Grid.Row="1" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label Text="Руководитель" Grid.Column="0" Grid.Row="2" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label Text="Подразделение-инициатор" Grid.Column="0" Grid.Row="3" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label Text="Рекомендуется для образовательной программы" Grid.Column="0" Grid.Row="4" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label Text="Тип проекта" Grid.Column="0" Grid.Row="5" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label Text="Тип занятости студента" Grid.Column="0" Grid.Row="6" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label Text="Территория реализации курса" Grid.Column="0" Grid.Row="7" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label Text="Курс" Grid.Column="0" Grid.Row="8" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label Text="Сроки реализации проекта" Grid.Column="0" Grid.Row="9" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label Text="Заявки принимаются до" Grid.Column="0" Grid.Row="10" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label Text="Количество вакантных мест на проекте" Grid.Column="0" Grid.Row="11" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label Text="Количество кредитов" Grid.Column="0" Grid.Row="12" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label Text="Интенсивность проектой деятельности" Grid.Column="0" Grid.Row="13" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <Label Text="Способ постановки задачи" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
