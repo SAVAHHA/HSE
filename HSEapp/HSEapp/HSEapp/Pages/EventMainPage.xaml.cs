@@ -10,10 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace HSEapp.Pages
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    [QueryProperty("ProjectCode", "projecctCode")]
-    public partial class FairDetailPage : ContentPage
+    public partial class EventMainPage : ContentPage
     {
-        public FairDetailPage()
+        public EventMainPage()
         {
             InitializeComponent();
         }

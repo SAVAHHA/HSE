@@ -11,7 +11,7 @@ namespace HSEapp
         {
             InitializeComponent();
 
-            MainPage = new FairMainPage();
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()

@@ -59,7 +59,7 @@
         <ScrollView>
             <StackLayout>
                 <StackLayout Orientation="Horizontal" MinimumWidthRequest="170">
-                    <Button Style="{StaticResource buttonStyle}" Text="Что такое проект и как его добавить?" ImageSource="Images/whatisprojectimage.png" ></Button>
+                    <Button Text="Что такое проект и как его добавить?" ImageSource="Whatisprojectimage.png" ></Button>
                     <Button Style="{StaticResource buttonStyle}" Text="Записаться на обучающий курс"></Button>
                 </StackLayout>
                 <Button Text="Пройти курс онлайн"></Button>
@@ -112,10 +112,10 @@
                             </Frame>
 
 
-                            <CollectionView ItemsSource=""
+                            <!--<CollectionView ItemsSource=""
                                             ItemTemplate=""
                                             SelectionMode="Single"
-                                            SelectionChanged="CollectionView_SelectionChanged"></CollectionView>
+                                            SelectionChanged="CollectionView_SelectionChanged"></CollectionView>-->
                         </StackLayout>
                     </StackLayout>
                 </Frame>

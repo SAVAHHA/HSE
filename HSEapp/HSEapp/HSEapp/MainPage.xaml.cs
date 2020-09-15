@@ -7,13 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace HSEapp.Pages
+namespace HSEapp
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    [QueryProperty("ProjectCode", "projecctCode")]
-    public partial class FairDetailPage : ContentPage
+    public partial class MainPage : Shell
     {
-        public FairDetailPage()
+        public MainPage()
         {
             InitializeComponent();
         }
