@@ -15,27 +15,12 @@ namespace HSEapp
         public MainPage()
         {
             InitializeComponent();
-            List<pfHSEData> pfHSEDatas = new List<pfHSEData>();
-            try
-            {
-                var parcer = new Parser();
-                pfHSEDatas = parcer.pfHSEParse();
-                T(pfHSEDatas);
-            }
-            catch
-            {
-                F();
-            }
+            T();
         }
 
-        private async void T(List<pfHSEData> pfHSEDatas)
+        private async void T()
         {
-            await DisplayAlert(pfHSEDatas.Count.ToString(), "", "OK");
-        }
-
-        private async void F()
-        {
-            await DisplayAlert("Bad", "", "OK");
+            await DisplayAlert(App.DatabaseFairProjects.GetProjectsAsync().Result.Count().ToString(), App.DatabaseFairProjects.GetProjectAsync(1).Result.Name, "OK");
         }
     }
 }

@@ -10,15 +10,15 @@ namespace HSEapp
 {
     public partial class App : Application
     {
-        public const string DATABASE_NAME = "tableFAirProjects.db";
-        static FairProjectDB databaseFairProjects;
-        public static FairProjectDB DatabaseFairProjects
+        public const string DATABASE_NAME = "FairProjects.db";
+        static FairProjectDataBase databaseFairProjects;
+        public static FairProjectDataBase DatabaseFairProjects
         {
             get
             {
                 if (databaseFairProjects == null)
                 {
-                    databaseFairProjects = new FairProjectDB(
+                    databaseFairProjects = new FairProjectDataBase(
                         Path.Combine(
                             Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), DATABASE_NAME));
                 }
@@ -29,8 +29,9 @@ namespace HSEapp
         public App()
         {
             InitializeComponent();
-            //var parcer = new Parser();
-            //parcer.pfHSEParse();
+            App.DatabaseFairProjects.DeleteAll();
+            var parcer = new Parser();
+            parcer.pfHSEParse();
             MainPage = new MainPage();
         }
 

@@ -6,10 +6,10 @@ using SQLite;
 
 namespace HSEapp.Data
 {
-    public class FairProjectDB
+    public class FairProjectDataBase
     {
         readonly SQLiteAsyncConnection database;
-        public FairProjectDB(string databasePath)
+        public FairProjectDataBase(string databasePath)
         {
             database = new SQLiteAsyncConnection(databasePath);
             database.CreateTableAsync<FairProjectTable>().Wait();
@@ -23,7 +23,7 @@ namespace HSEapp.Data
         {
             return database.InsertAsync(fairProject);
         }
-        public Task<FairProjectTable> GetUserAsync(int id)
+        public Task<FairProjectTable> GetProjectAsync(int id)
         {
             return database.GetAsync<FairProjectTable>(id);
         }

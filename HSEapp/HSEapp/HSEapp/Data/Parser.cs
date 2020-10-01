@@ -10,7 +10,7 @@ namespace HSEapp.Data
     public class Parser
     {
         private List<pfHSEData> pfHSEData = new List<pfHSEData>();
-        public List<pfHSEData> pfHSEParse()
+        public void pfHSEParse()
         {
             try
             {
@@ -189,20 +189,33 @@ namespace HSEapp.Data
             {
                 //Console.WriteLine(pfHSEData.ToString());
             }
-            return pfHSEData;
-            //foreach (var proj in pfHSEData)
-            //{
-            //    FairProjectTable fairProject = new FairProjectTable();
-            //    fairProject.Name = proj.Name;
-            //    fairProject.JoinUntil = proj.Deadline;
-            //   // fairProject.MOPs = proj.MOPs;
-            //   // fairProject.OPs = proj.OPs;
-            //    fairProject.Period = proj.Period;
-            //    fairProject.CreditAmount = proj.Points;
-            //   // fairProject.Curator = proj.Curator;
-            //   // fairProject.URL = proj.URL;
-            //    App.DatabaseFairProjects.SaveProjectAsync(fairProject);
-            //}
+            //return pfHSEData;
+            int i = 0;
+            foreach (var proj in pfHSEData)
+            {
+                FairProjectTable fairProject = new FairProjectTable();
+                fairProject.Id = i;
+                fairProject.Name = proj.Name;
+                fairProject.JoinUntil = proj.Deadline;
+                //string mops = "";
+                //foreach (var mop in proj.MOPs)
+                //{
+                //    mops += mop + ";";
+                //}
+                //fairProject.MOPs = mops;
+                string ops = "";
+                foreach (var op in proj.OPs)
+                {
+                    ops += op + ";";
+                }
+                fairProject.OPs = ops;
+                fairProject.Period = proj.Period;
+                fairProject.CreditAmount = proj.Points;
+                fairProject.Curator = proj.Curator;
+                fairProject.URL = proj.URL;
+                i += 1;
+                App.DatabaseFairProjects.SaveProjectAsync(fairProject);
+            }
         }
     }
     public class pfHSEData
