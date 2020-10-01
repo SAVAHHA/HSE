@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HSEapp.Views.FairBarView">
+    <ContentView.Content>
+        <AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Image Source="HI" VerticalOptions="Start" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" Aspect="Fill"></Image>
+            <Label BackgroundColor="Transparent" Text="Ярмарка проектов" Margin="95,15,0,0" TextColor="#DC143C" FontFamily="Montserrat" FontSize="Default" HorizontalOptions="Center" VerticalOptions="Center" ></Label>
+            <Image BackgroundColor="Transparent" Source="HSE" Margin="15,5,0,0" HeightRequest="45" WidthRequest="45"></Image>
+            <ImageButton BackgroundColor="Transparent" Source="search" HeightRequest="35"  Margin="285,9,0,0" ></ImageButton>
+        </AbsoluteLayout>
+    </ContentView.Content>
+</ContentView>

@@ -4,7 +4,13 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             xmlns:view="clr-namespace:HSEapp.Views"
              x:Class="HSEapp.Pages.FairMainPage">
+    <Shell.TitleView>
+        <view:FairBarView></view:FairBarView>
+    </Shell.TitleView>
+    
+    
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="buttonStyle" TargetType="Button">

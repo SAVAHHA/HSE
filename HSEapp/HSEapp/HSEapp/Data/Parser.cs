@@ -30,35 +30,35 @@ namespace HSEapp.Data
                             var element = new pfHSEData();
                             try
                             {
-                                var name_text = s.InnerText.Split("Рекомендуемые образовательные программы:".ToCharArray());
-                                element.URL = s.InnerHtml.Split("<a href=".ToCharArray())[1].Split(".html".ToCharArray())[0].Split('"')[1] + ".html";
+                                var name_text = s.InnerText.Split(new string[] { "Рекомендуемые образовательные программы:" }, StringSplitOptions.None);
+                                element.URL = s.InnerHtml.Split(new string[] { "<a href=" }, StringSplitOptions.None)[1].Split(new string[] { ".html" }, StringSplitOptions.None)[0].Split('"')[1] + ".html";
                                 element.Name = name_text[0];
-                                var test = name_text[1].Split("Рекомендуемые магистерские программы:".ToCharArray());
+                                var test = name_text[1].Split(new string[] { "Рекомендуемые магистерские программы:" }, StringSplitOptions.None);
                                 if (test.Length == 1)
                                 {
-                                    var op_text = name_text[1].Split("Срок записи на проект истекает:".ToCharArray());
+                                    var op_text = name_text[1].Split(new string[] { "Срок записи на проект истекает:" }, StringSplitOptions.None);
                                     element.OPs = op_text[0].Split(',').ToList();
                                     element.OPs[element.OPs.Count - 1] = element.OPs[element.OPs.Count - 1].Substring(0, element.OPs[element.OPs.Count - 1].Length - 12);
                                 }
                                 else
                                 {
-                                    var op_text = name_text[1].Split("Рекомендуемые магистерские программы:".ToCharArray());
+                                    var op_text = name_text[1].Split(new string[] { "Рекомендуемые магистерские программы:" }, StringSplitOptions.None);
                                     element.OPs = op_text[0].Split(',').ToList();
                                     element.OPs[element.OPs.Count - 1] = element.OPs[element.OPs.Count - 1].Substring(0, element.OPs[element.OPs.Count - 1].Length - 12);
-                                    var mops_text = op_text[1].Split("Срок записи на проект истекает:".ToCharArray());
+                                    var mops_text = op_text[1].Split(new string[] { "Срок записи на проект истекает:" }, StringSplitOptions.None);
                                     element.MOPs = mops_text[0].Split(',').ToList();
                                     element.MOPs[element.MOPs.Count - 1] = element.MOPs[element.MOPs.Count - 1].Substring(0, element.MOPs[element.MOPs.Count - 1].Length - 12);
                                 }
-                                var deadline_text = name_text[1].Split("Срок записи на проект истекает:".ToCharArray())[1];
-                                deadline_text = deadline_text.Split("Сроки реализации проекта:".ToCharArray())[0];
+                                var deadline_text = name_text[1].Split(new string[] { "Срок записи на проект истекает:" }, StringSplitOptions.None)[1];
+                                deadline_text = deadline_text.Split(new string[] { "Сроки реализации проекта:" }, StringSplitOptions.None)[0];
                                 element.Deadline = deadline_text;
-                                var period_text = name_text[1].Split("Сроки реализации проекта:".ToCharArray())[1];
-                                period_text = period_text.Split("Количество кредитов:".ToCharArray())[0];
+                                var period_text = name_text[1].Split(new string[] { "Сроки реализации проекта:" }, StringSplitOptions.None)[1];
+                                period_text = period_text.Split(new string[] { "Количество кредитов:" }, StringSplitOptions.None)[0];
                                 element.Period = period_text;
-                                var point_text = name_text[1].Split("Количество кредитов:".ToCharArray())[1];
-                                point_text = point_text.Split("Руководитель:".ToCharArray())[0];
+                                var point_text = name_text[1].Split(new string[] { "Количество кредитов:" }, StringSplitOptions.None)[1];
+                                point_text = point_text.Split(new string[] { "Руководитель:" }, StringSplitOptions.None)[0];
                                 element.Points = point_text;
-                                var curator_text = name_text[1].Split("Руководитель:".ToCharArray())[1];
+                                var curator_text = name_text[1].Split(new string[] { "Руководитель:" }, StringSplitOptions.None)[1];
                                 var curator_text_list = curator_text.Split(" ".ToCharArray());
                                 curator_text = curator_text_list[1] + " " + curator_text_list[2];
                                 element.Curator = curator_text;
@@ -66,21 +66,21 @@ namespace HSEapp.Data
                             }
                             catch
                             {
-                                var name_text = s.InnerText.Split("Рекомендуется:".ToCharArray());
-                                element.URL = s.InnerHtml.Split("<a href=".ToCharArray())[1].Split(".html".ToCharArray())[0].Split('"')[1] + ".html";
+                                var name_text = s.InnerText.Split(new string[] { "Рекомендуется:" }, StringSplitOptions.None);
+                                element.URL = s.InnerHtml.Split(new string[] { "<a href=" }, StringSplitOptions.None)[1].Split(new string[] { ".html" }, StringSplitOptions.None)[0].Split('"')[1] + ".html";
                                 element.Name = name_text[0];
                                 element.OPs = new List<string>() { "Все направления" };
-                                var deadline_text = name_text[1].Split("Срок записи на проект истекает:".ToCharArray())[1];
-                                deadline_text = deadline_text.Split("Сроки реализации проекта:".ToCharArray())[0];
+                                var deadline_text = name_text[1].Split(new string[] { "Срок записи на проект истекает:" }, StringSplitOptions.None)[1];
+                                deadline_text = deadline_text.Split(new string[] { "Сроки реализации проекта:" }, StringSplitOptions.None)[0];
                                 element.Deadline = deadline_text;
-                                var period_text = name_text[1].Split("Сроки реализации проекта:".ToCharArray())[1];
-                                period_text = period_text.Split("Количество кредитов:".ToCharArray())[0];
+                                var period_text = name_text[1].Split(new string[] { "Сроки реализации проекта:" }, StringSplitOptions.None)[1];
+                                period_text = period_text.Split(new string[] { "Количество кредитов:" }, StringSplitOptions.None)[0];
                                 element.Period = period_text;
-                                var point_text = name_text[1].Split("Количество кредитов:".ToCharArray())[1];
-                                point_text = point_text.Split("Руководитель:".ToCharArray())[0];
+                                var point_text = name_text[1].Split(new string[] { "Количество кредитов:" }, StringSplitOptions.None)[1];
+                                point_text = point_text.Split(new string[] { "Руководитель:" }, StringSplitOptions.None)[0];
                                 element.Points = point_text;
-                                var curator_text = name_text[1].Split("Руководитель:".ToCharArray())[1];
-                                var curator_text_list = curator_text.Split(" ".ToCharArray());
+                                var curator_text = name_text[1].Split(new string[] { "Руководитель:" }, StringSplitOptions.None)[1];
+                                var curator_text_list = curator_text.Split(new string[] { " " }, StringSplitOptions.None);
                                 curator_text = curator_text_list[1] + " " + curator_text_list[2];
                                 element.Curator = curator_text;
                                 pfHSEData.Add(element);
@@ -101,36 +101,36 @@ namespace HSEapp.Data
                             var element = new pfHSEData();
                             try
                             {
-                                var name_text = s.InnerText.Split("Рекомендуемые образовательные программы:".ToCharArray());
-                                element.URL = s.InnerHtml.Split("<a href=".ToCharArray())[1].Split(".html".ToCharArray())[0].Split('"')[1] + ".html";
+                                var name_text = s.InnerText.Split(new string[] { "Рекомендуемые образовательные программы:" }, StringSplitOptions.None);
+                                element.URL = s.InnerHtml.Split(new string[] { "<a href=" }, StringSplitOptions.None)[1].Split(new string[] { ".html" }, StringSplitOptions.None)[0].Split('"')[1] + ".html";
                                 element.Name = name_text[0];
-                                var test = name_text[1].Split("Рекомендуемые магистерские программы:".ToCharArray());
+                                var test = name_text[1].Split(new string[] { "Рекомендуемые магистерские программы:" }, StringSplitOptions.None);
                                 if (test.Length == 1)
                                 {
-                                    var op_text = name_text[1].Split("Срок записи на проект истекает:".ToCharArray());
+                                    var op_text = name_text[1].Split(new string[] { "Срок записи на проект истекает:" }, StringSplitOptions.None);
                                     element.OPs = op_text[0].Split(',').ToList();
                                     element.OPs[element.OPs.Count - 1] = element.OPs[element.OPs.Count - 1].Substring(0, element.OPs[element.OPs.Count - 1].Length - 12);
                                 }
                                 else
                                 {
-                                    var op_text = name_text[1].Split("Рекомендуемые магистерские программы:".ToCharArray());
+                                    var op_text = name_text[1].Split(new string[] { "Рекомендуемые магистерские программы:" }, StringSplitOptions.None);
                                     element.OPs = op_text[0].Split(',').ToList();
                                     element.OPs[element.OPs.Count - 1] = element.OPs[element.OPs.Count - 1].Substring(0, element.OPs[element.OPs.Count - 1].Length - 12);
-                                    var mops_text = op_text[1].Split("Срок записи на проект истекает:".ToCharArray());
+                                    var mops_text = op_text[1].Split(new string[] { "Срок записи на проект истекает:" }, StringSplitOptions.None);
                                     element.MOPs = mops_text[0].Split(',').ToList();
                                     element.MOPs[element.MOPs.Count - 1] = element.MOPs[element.MOPs.Count - 1].Substring(0, element.MOPs[element.MOPs.Count - 1].Length - 12);
                                 }
-                                var deadline_text = name_text[1].Split("Срок записи на проект истекает:".ToCharArray())[1];
-                                deadline_text = deadline_text.Split("Сроки реализации проекта:".ToCharArray())[0];
+                                var deadline_text = name_text[1].Split(new string[] { "Срок записи на проект истекает:" }, StringSplitOptions.None)[1];
+                                deadline_text = deadline_text.Split(new string[] { "Сроки реализации проекта:" }, StringSplitOptions.None)[0];
                                 element.Deadline = deadline_text;
-                                var period_text = name_text[1].Split("Сроки реализации проекта:".ToCharArray())[1];
-                                period_text = period_text.Split("Количество кредитов:".ToCharArray())[0];
+                                var period_text = name_text[1].Split(new string[] { "Сроки реализации проекта:" }, StringSplitOptions.None)[1];
+                                period_text = period_text.Split(new string[] { "Количество кредитов:" }, StringSplitOptions.None)[0];
                                 element.Period = period_text;
-                                var point_text = name_text[1].Split("Количество кредитов:".ToCharArray())[1];
-                                point_text = point_text.Split("Руководитель:".ToCharArray())[0];
+                                var point_text = name_text[1].Split(new string[] { "Количество кредитов:" }, StringSplitOptions.None)[1];
+                                point_text = point_text.Split(new string[] { "Руководитель:" }, StringSplitOptions.None)[0];
                                 element.Points = point_text;
-                                var curator_text = name_text[1].Split("Руководитель:".ToCharArray())[1];
-                                var curator_text_list = curator_text.Split(" ".ToCharArray());
+                                var curator_text = name_text[1].Split(new string[] { "Руководитель:" }, StringSplitOptions.None)[1];
+                                var curator_text_list = curator_text.Split(new string[] { " " }, StringSplitOptions.None);
                                 curator_text = curator_text_list[1] + " " + curator_text_list[2];
                                 element.Curator = curator_text;
                                 pfHSEData.Add(element);
@@ -139,19 +139,19 @@ namespace HSEapp.Data
                             {
                                 try
                                 {
-                                    var name_text = s.InnerText.Split("Рекомендуется:".ToCharArray());
+                                    var name_text = s.InnerText.Split(new string[] { "Рекомендуется:" }, StringSplitOptions.None);
                                     element.Name = name_text[0];
                                     element.OPs = new List<string>() { "Все направления" };
-                                    var deadline_text = name_text[1].Split("Срок записи на проект истекает:".ToCharArray())[1];
-                                    deadline_text = deadline_text.Split("Сроки реализации проекта:".ToCharArray())[0];
+                                    var deadline_text = name_text[1].Split(new string[] { "Срок записи на проект истекает:" }, StringSplitOptions.None)[1];
+                                    deadline_text = deadline_text.Split(new string[] { "Сроки реализации проекта:" }, StringSplitOptions.None)[0];
                                     element.Deadline = deadline_text;
-                                    var period_text = name_text[1].Split("Сроки реализации проекта:".ToCharArray())[1];
-                                    period_text = period_text.Split("Количество кредитов:".ToCharArray())[0];
+                                    var period_text = name_text[1].Split(new string[] { "Сроки реализации проекта:" }, StringSplitOptions.None)[1];
+                                    period_text = period_text.Split(new string[] { "Количество кредитов:" }, StringSplitOptions.None)[0];
                                     element.Period = period_text;
-                                    var point_text = name_text[1].Split("Количество кредитов:".ToCharArray())[1];
-                                    point_text = point_text.Split("Руководитель:".ToCharArray())[0];
+                                    var point_text = name_text[1].Split(new string[] { "Количество кредитов:" }, StringSplitOptions.None)[1];
+                                    point_text = point_text.Split(new string[] { "Руководитель:" }, StringSplitOptions.None)[0];
                                     element.Points = point_text;
-                                    var curator_text = name_text[1].Split("Руководитель:".ToCharArray())[1];
+                                    var curator_text = name_text[1].Split(new string[] { "Руководитель:" }, StringSplitOptions.None)[1];
                                     var curator_text_list = curator_text.Split(" ".ToCharArray());
                                     curator_text = curator_text_list[1] + " " + curator_text_list[2];
                                     element.Curator = curator_text;
@@ -159,22 +159,22 @@ namespace HSEapp.Data
                                 }
                                 catch
                                 {
-                                    var name_text = s.InnerText.Split("Рекомендуемые магистерские программы:".ToCharArray());
+                                    var name_text = s.InnerText.Split(new string[] { "Рекомендуемые магистерские программы:" }, StringSplitOptions.None);
                                     element.Name = name_text[0];
-                                    var mops_text = name_text[1].Split("Срок записи на проект истекает:".ToCharArray());
+                                    var mops_text = name_text[1].Split(new string[] { "Срок записи на проект истекает:" }, StringSplitOptions.None);
                                     element.MOPs = mops_text[0].Split(',').ToList();
                                     element.MOPs[element.MOPs.Count - 1] = element.MOPs[element.MOPs.Count - 1].Substring(0, element.MOPs[element.MOPs.Count - 1].Length - 12);
-                                    var deadline_text = name_text[1].Split("Срок записи на проект истекает:".ToCharArray())[1];
-                                    deadline_text = deadline_text.Split("Сроки реализации проекта:".ToCharArray())[0];
+                                    var deadline_text = name_text[1].Split(new string[] { "Срок записи на проект истекает:" }, StringSplitOptions.None)[1];
+                                    deadline_text = deadline_text.Split(new string[] { "Сроки реализации проекта:" }, StringSplitOptions.None)[0];
                                     element.Deadline = deadline_text;
-                                    var period_text = name_text[1].Split("Сроки реализации проекта:".ToCharArray())[1];
-                                    period_text = period_text.Split("Количество кредитов:".ToCharArray())[0];
+                                    var period_text = name_text[1].Split(new string[] { "Сроки реализации проекта:" }, StringSplitOptions.None)[1];
+                                    period_text = period_text.Split(new string[] { "Количество кредитов:" }, StringSplitOptions.None)[0];
                                     element.Period = period_text;
-                                    var point_text = name_text[1].Split("Количество кредитов:".ToCharArray())[1];
-                                    point_text = point_text.Split("Руководитель:".ToCharArray())[0];
+                                    var point_text = name_text[1].Split(new string[] { "Количество кредитов:" }, StringSplitOptions.None)[1];
+                                    point_text = point_text.Split(new string[] { "Руководитель:" }, StringSplitOptions.None)[0];
                                     element.Points = point_text;
-                                    var curator_text = name_text[1].Split("Руководитель:".ToCharArray())[1];
-                                    var curator_text_list = curator_text.Split(" ".ToCharArray());
+                                    var curator_text = name_text[1].Split(new string[] { "Руководитель:" }, StringSplitOptions.None)[1];
+                                    var curator_text_list = curator_text.Split(new string[] { " " }, StringSplitOptions.None);
                                     curator_text = curator_text_list[1] + " " + curator_text_list[2];
                                     element.Curator = curator_text;
                                     pfHSEData.Add(element);
