@@ -29,7 +29,8 @@ namespace HSEapp
         public App()
         {
             InitializeComponent();
-
+            //var parcer = new Parser();
+            //parcer.pfHSEParse();
             MainPage = new MainPage();
         }
 

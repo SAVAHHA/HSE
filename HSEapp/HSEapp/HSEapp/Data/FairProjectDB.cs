@@ -14,12 +14,12 @@ namespace HSEapp.Data
             database = new SQLiteAsyncConnection(databasePath);
             database.CreateTableAsync<FairProjectTable>().Wait();
         }
-        public Task<List<FairProjectTable>> GetUsersAsync()
+        public Task<List<FairProjectTable>> GetProjectsAsync()
         {
             return database.Table<FairProjectTable>().ToListAsync();
         }
 
-        public Task<int> SaveUserAsync(FairProjectTable fairProject)
+        public Task<int> SaveProjectAsync(FairProjectTable fairProject)
         {
             return database.InsertAsync(fairProject);
         }
@@ -27,7 +27,7 @@ namespace HSEapp.Data
         {
             return database.GetAsync<FairProjectTable>(id);
         }
-        public Task<int> DeleteUserAsync(int id)
+        public Task<int> DeleteProjectAsync(int id)
         {
             return database.DeleteAsync<FairProjectTable>(id);
         }
