@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using HSEapp.Data;
 
 namespace HSEapp.Pages
 {
@@ -21,6 +22,54 @@ namespace HSEapp.Pages
         private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
+        }
+        void ScrollView_Scrolled(System.Object sender, Xamarin.Forms.ScrolledEventArgs e)
+        {
+        }
+
+        void WhatIs_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
+        void SignUpFor_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
+        void Notification_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
+        void Sign_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
+        void TakeTheCourseOnline_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
+        void Filtr_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
+        void SortByAddData_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
+        void SortByImplementationPeriod_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
+        void SortByAmountOfCredits_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
+        void SortByDeadlineForRecordingAProject_Clicked(System.Object sender, System.EventArgs e)
+        {
+        }
+
+        private async void FairProjectListView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            FairProjectTable fairProject = e.Item as FairProjectTable;
+            if (fairProject != null)
+            {
+                await Shell.Current.GoToAsync($"fairDetailPage?projectName={fairProject.Name}");
+            }
+        }
+
+        private void CloseButton_Clicked(object sender, EventArgs e)
+        {
+            InfoStackLayout.IsVisible = false;
         }
     }
 }

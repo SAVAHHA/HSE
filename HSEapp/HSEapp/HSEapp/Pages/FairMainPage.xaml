@@ -5,12 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:view="clr-namespace:HSEapp.Views"
+             xmlns:local="clr-namespace:HSEapp"
              x:Class="HSEapp.Pages.FairMainPage">
+    
     <Shell.TitleView>
         <view:FairBarView></view:FairBarView>
     </Shell.TitleView>
-    
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="buttonStyle" TargetType="Button">
@@ -22,110 +23,113 @@
         </ResourceDictionary>
         
         <DataTemplate x:Name="Projectemplate" x:Key="ProjectTemplate">
-            <Frame BackgroundColor="LightPink" HeightRequest="172" WidthRequest="430" CornerRadius="34">
-                <StackLayout Spacing="3">
-                    <Label Text="Анализ итогов защиты ВКР на Журналистике и Медиакоммуникациях"></Label>
-                    <StackLayout Orientation="Horizontal" Padding="0">
-                        <Label>Рекомендуемые образовательные программы:</Label>
-                        <Label>Журналистика, Медиакоммуникации</Label>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="LightPink" VerticalOptions="Center" Padding="5" HorizontalOptions="Fill" CornerRadius="34">
+                    <StackLayout Spacing="3">
+                        <Label Text="{Binding Name}"></Label>
+                        <StackLayout Orientation="Horizontal" Padding="0">
+                            <Label>Рекомендуемые образовательные программы:</Label>
+                            <Label Text="{Binding OPs}"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Padding="0" >
+                            <Label>Срок записи на проект истекает:</Label>
+                            <Label Text="{Binding JoinUntil}"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Padding="0">
+                            <Label>Сроки реализации проекта:</Label>
+                            <Label Text="{Binding Period}"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Padding="0" >
+                            <Label>Количество кредитов:</Label>
+                            <Label Text="{Binding CreditAmount}"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Padding="0">
+                            <Label>Руководитель:</Label>
+                            <Label Text="{Binding Leader}"></Label>
+                        </StackLayout>
                     </StackLayout>
-                    <StackLayout Orientation="Horizontal" Padding="0" >
-                        <Label>Срок записи на проект истекает:</Label>
-                        <Label>31 августа 2020 г.</Label>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" Padding="0">
-                        <Label>Сроки реализации проекта:</Label>
-                        <Label>8 июля - 6 августа</Label>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" Padding="0" >
-                        <Label>Количество кредитов:</Label>
-                        <Label>2</Label>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" Padding="0">
-                        <Label>Руководитель:</Label>
-                        <Label>Авдеева Анастасия Владимировна</Label>
-                    </StackLayout>
-                    <StackLayout Orientation="Horizontal" HeightRequest="30" Padding="0">
-                        <Frame BackgroundColor="Gray" CornerRadius="23" Padding="5">
-                            <Label FontSize="Micro">Анализ данных</Label>
-                        </Frame>
-                        <Frame BackgroundColor="Gray" CornerRadius="23" Padding="5">
-                            <Label FontSize="Micro">
-                                Дата-журналистика
-                            </Label>
-                        </Frame>
-                    </StackLayout>
-                </StackLayout>
-            </Frame>
+                </Frame>
+            </Grid>
         </DataTemplate>
 
         </ContentPage.Resources>
 
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <StackLayout Orientation="Horizontal" MinimumWidthRequest="170">
-                    <Button Text="Что такое проект и как его добавить?" ImageSource="Whatisprojectimage.png" ></Button>
-                    <Button Style="{StaticResource buttonStyle}" Text="Записаться на обучающий курс"></Button>
-                </StackLayout>
-                <Button Text="Пройти курс онлайн"></Button>
-                <StackLayout Orientation="Horizontal">
-                    <Image Source="icon.png" WidthRequest="30"></Image>
-                    <Label FontSize="Small">Сортировать по:</Label>
-                    <StackLayout HorizontalOptions="EndAndExpand">
-                        <Button BackgroundColor="Transparent" Text="дате добавления проекта" FontSize="Micro" HeightRequest="20" Padding="0"></Button>
-                        <Button BackgroundColor="Transparent" Text="сроку реализации" FontSize="Micro" Padding="0"></Button>
-                        <Button BackgroundColor="Transparent" Text="количеству кредитов" FontSize="Micro" Padding="0"></Button>
-                        <Button BackgroundColor="Transparent" Text="сроку записи на проект" FontSize="Micro" Padding="0"></Button>
+        <Grid>
+            <ScrollView>
+                <StackLayout x:Name="mainStackLayout">
+                    <StackLayout x:Name="InfoStackLayout">
+                        <StackLayout Spacing="10" Margin="20,0,20,0"  Orientation="Horizontal">
+                            <Button BackgroundColor="LightPink" Text="Подписаться на уведомления" TextColor="Black" FontSize="10" WidthRequest="250" CornerRadius="10" Clicked="Sign_Clicked" ></Button>
+                            <ImageButton Source="Notification.png" HeightRequest="25"  Margin="0,0,0,0" Clicked="Notification_Clicked"  ></ImageButton>
+                        </StackLayout>
+                        <StackLayout Spacing="28" Orientation="Horizontal" Margin="20,25,20,0">
+                            <ImageButton Source="WhatIs" WidthRequest="126" Clicked="WhatIs_Clicked"></ImageButton>
+                            <ImageButton Source="SignUpFor" WidthRequest="126" Clicked="SignUpFor_Clicked"  ></ImageButton>
+                        </StackLayout>
+                        <StackLayout Margin="20,5,20,0">
+                            <ImageButton Source="TakeTheCourseOnline"  Margin="0,0,0,0"></ImageButton>
+                        </StackLayout>
+                        <StackLayout Margin="20,25,20,0" Orientation="Horizontal">
+                            <ImageButton Source="Filtr" Margin="0,0,0,140" HorizontalOptions="Start" WidthRequest="26" Clicked="Filtr_Clicked" ></ImageButton>
+                            <Label Text="Сортировать по:" FontSize="11" TextColor="Black" Margin="0,5,0,0" ></Label>
+                        </StackLayout>
+                        <Button Text="Скрыть" x:Name="CloseButton" Clicked="CloseButton_Clicked"></Button>
                     </StackLayout>
+                    <ListView x:Name="FairProjectListView"
+                              HasUnevenRows="True"
+                              ItemsSource="{x:Static local:App.FairProjects}"
+                              ItemTapped="FairProjectListView_ItemTapped">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto"></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"></ColumnDefinition>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="LightPink" VerticalOptions="Center" Padding="5" HorizontalOptions="Fill" CornerRadius="34">
+                                            <StackLayout Spacing="3">
+                                                <Label Text="{Binding Name}"></Label>
+                                                <StackLayout Orientation="Horizontal" Padding="0">
+                                                    <Label>Рекомендуемые образовательные программы:</Label>
+                                                    <Label Text="{Binding OPs}"></Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" Padding="0" >
+                                                    <Label>Срок записи на проект истекает:</Label>
+                                                    <Label Text="{Binding JoinUntil}"></Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" Padding="0">
+                                                    <Label>Сроки реализации проекта:</Label>
+                                                    <Label Text="{Binding Period}"></Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" Padding="0" >
+                                                    <Label>Количество кредитов:</Label>
+                                                    <Label Text="{Binding CreditAmount}"></Label>
+                                                </StackLayout>
+                                                <StackLayout Orientation="Horizontal" Padding="0">
+                                                    <Label>Руководитель:</Label>
+                                                    <Label Text="{Binding Leader}"></Label>
+                                                </StackLayout>
+                                            </StackLayout>
+                                        </Frame>
+                                    </Grid>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
                 </StackLayout>
-                <!--<StackLayout x:Name="collectionViewStackLayout" Orientation="Vertical" Spacing="0">
-            <CollectionView x:Name="projectsCollectionView" Margin="10" ItemTemplate="{StaticResource ProjectTemplate}" SelectionMode="Single">
-            </CollectionView>
-        </StackLayout>-->
-                <Frame BackgroundColor="LightPink" HeightRequest="172" WidthRequest="430" CornerRadius="34">
-                    <!---этот фрейм надо удалить потом, когда снимут коммент-->
-                    <StackLayout Spacing="3">
-                        <Label Text="Анализ итогов защиты ВКР на Журналистике и Медиакоммуникациях"></Label>
-                        <StackLayout Orientation="Horizontal" Padding="0">
-                            <Label>Рекомендуемые образовательные программы:</Label>
-                            <Label>Журналистика, Медиакоммуникации</Label>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal" Padding="0" >
-                            <Label>Срок записи на проект истекает:</Label>
-                            <Label>31 августа 2020 г.</Label>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal" Padding="0">
-                            <Label>Сроки реализации проекта:</Label>
-                            <Label>8 июля - 6 августа</Label>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal" Padding="0" >
-                            <Label>Количество кредитов:</Label>
-                            <Label>2</Label>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal" Padding="0">
-                            <Label>Руководитель:</Label>
-                            <Label>Авдеева Анастасия Владимировна</Label>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal" HeightRequest="30" Padding="0">
-                            <Frame BackgroundColor="Gray" CornerRadius="23" Padding="5">
-                                <Label FontSize="Micro">Анализ данных</Label>
-                            </Frame>
-                            <Frame BackgroundColor="Gray" CornerRadius="23" Padding="5">
-                                <Label FontSize="Micro">
-                                    Дата-журналистика
-                                </Label>
-                            </Frame>
-
-
-                            <!--<CollectionView ItemsSource=""
-                                            ItemTemplate=""
-                                            SelectionMode="Single"
-                                            SelectionChanged="CollectionView_SelectionChanged"></CollectionView>-->
-                        </StackLayout>
-                    </StackLayout>
-                </Frame>
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

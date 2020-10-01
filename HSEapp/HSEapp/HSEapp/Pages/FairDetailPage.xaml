@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label x:Name="ProjectDescriptionLabel" Margin="10"></Label>
+                <Label x:Name="ProjectDescriptionLabel" Text="{Binding Name}" Margin="10"></Label>
                 
                 <Grid>
                     <Grid.RowDefinitions>
@@ -46,7 +46,7 @@
                     <Label Text="Интенсивность проектой деятельности" Grid.Column="0" Grid.Row="13" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
                     <Label Text="Способ постановки задачи" Grid.Column="0" Grid.Row="0" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
 
-                    <Label x:Name="ProjectIdNumberLabel" Grid.Column="1" Grid.Row="0" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
+                    <!--<Label x:Name="ProjectIdNumberLabel" Text="{Binding }" Grid.Column="1" Grid.Row="0" HorizontalOptions="Start" Margin="10,5,10,5"></Label>-->
                     <Label x:Name="CampusLabel" Grid.Column="1" Grid.Row="1" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
                     <Label x:Name="LeaderLabel" Grid.Column="1" Grid.Row="2" HorizontalOptions="Start" Margin="10,5,10,5"></Label>
                     <Label x:Name="InitiatingUnitLabel" Grid.Column="1" Grid.Row="3" HorizontalOptions="Start" Margin="10,5,10,5"></Label>

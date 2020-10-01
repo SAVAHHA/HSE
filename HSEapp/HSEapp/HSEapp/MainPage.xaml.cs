@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HSEapp.Data;
+using HSEapp.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,15 +13,22 @@ namespace HSEapp
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : Shell
     {
+        Dictionary<string, Type> routes = new Dictionary<string, Type>();
+        public Dictionary<string, Type> Routes { get { return routes; } }
         public MainPage()
         {
             InitializeComponent();
-            T();
+            RegisterRoutes();
         }
 
-        private async void T()
+        void RegisterRoutes()
         {
-            await DisplayAlert(App.DatabaseFairProjects.GetProjectsAsync().Result.Count().ToString(), App.DatabaseFairProjects.GetProjectAsync(1).Result.Name, "OK");
+            routes.Add("fairDetailPage", typeof(FairDetailPage));
+
+            foreach (var item in routes)
+            {
+                Routing.RegisterRoute(item.Key, item.Value);
+            }
         }
     }
 }

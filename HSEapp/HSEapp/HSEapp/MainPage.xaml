@@ -1,15 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             TabBarBackgroundColor="White"
+             TabBarTitleColor="#DC143C"
+             Shell.BackgroundColor="White"
              xmlns:pages="clr-namespace:HSEapp.Pages"
              x:Class="HSEapp.MainPage">
 
     <TabBar>
-        <Tab Title="Ярмарка" >
+        <Tab Title="Ярмарка" Icon="Fair">
             <ShellContent Title="Fair" Route="fair" ContentTemplate="{DataTemplate pages:FairMainPage}"></ShellContent>
         </Tab>
 
-        <Tab Title="Мероприятия">
+        <Tab Title="Мероприятия" Icon="Event">
             <ShellContent Title="Event" Route="event" ContentTemplate="{DataTemplate pages:EventMainPage}"></ShellContent>
         </Tab>
     </TabBar>

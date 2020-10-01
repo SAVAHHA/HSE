@@ -4,7 +4,7 @@ using Xamarin.Forms.Xaml;
 using HSEapp.Pages;
 using HSEapp.Data;
 using System.IO;
-
+using System.Collections.Generic;
 
 namespace HSEapp
 {
@@ -25,6 +25,20 @@ namespace HSEapp
                 return databaseFairProjects;
             }
         }
+
+        public static IList<FairProjectTable> FairProjects
+        {
+            get
+            {
+                List<FairProjectTable> fairProjects = new List<FairProjectTable>();
+                if (databaseFairProjects != null)
+                {
+                    fairProjects = App.DatabaseFairProjects.GetProjectsAsync().Result;
+                }
+                return fairProjects;
+            }
+        }
+
 
         public App()
         {
