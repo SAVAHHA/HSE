@@ -63,6 +63,17 @@ namespace HSEapp.Pages
             FairProjectTable fairProject = e.Item as FairProjectTable;
             if (fairProject != null)
             {
+                var cfp = new FairProjectTable();
+                cfp.Id = 0;
+                cfp.JoinUntil = fairProject.JoinUntil;
+                cfp.Name = fairProject.Name;
+                cfp.OPs = fairProject.OPs;
+                cfp.Period = fairProject.Period;
+                cfp.URL = fairProject.URL;
+                cfp.CreditAmount = fairProject.CreditAmount;
+                cfp.Curator = fairProject.Curator;
+                await App.DatabaseCurrentFairProject.DeleteAll();
+                await App.DatabaseCurrentFairProject.SaveProjectAsync(cfp);
                 await Shell.Current.GoToAsync($"fairDetailPage?projectName={fairProject.Name}");
             }
         }

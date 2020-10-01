@@ -29,6 +29,12 @@ namespace HSEapp.Pages
         public FairDetailPage()
         {
             InitializeComponent();
+            T();
+        }
+
+        private async void T()
+        {
+            await DisplayAlert(App.CurrentFairProject.Name, "", "OK");
         }
     }
 }
