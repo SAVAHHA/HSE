@@ -29,7 +29,22 @@ namespace HSEapp.Pages.Fair
         public FairDetailPage()
         {
             InitializeComponent();
-            T();
+            CampusLabel.Text = App.CurrentFairProject.Campus;
+            ForOPLabel.Text = App.CurrentFairProject.OPs;
+            JoinUntilLabel.Text = App.CurrentFairProject.Deadline;
+            CreditAmountLabel.Text = App.CurrentFairProject.Points;
+            LeaderLabel.Text = App.CurrentFairProject.Curator;
+            InitiatingUnitLabel.Text = App.CurrentFairProject.Initiator;
+            ProjectTypeLabel.Text = App.CurrentFairProject.ProjectType;
+            ProjectDescriptionLabel.Text = App.CurrentFairProject.Description;
+            EmploymentTypeLabel.Text = App.CurrentFairProject.WorkType;
+            LocationLabel.Text = App.CurrentFairProject.Territory;
+            CourseLabel.Text = App.CurrentFairProject.Course;
+            ProjectPeriodLabel.Text = App.CurrentFairProject.Dates;
+            VacantPlacesLabel.Text = App.CurrentFairProject.VacancyNum;
+            ProjectIntencityLabel.Text = App.CurrentFairProject.Intensivity;
+            WayOfSettingProblemLabel.Text = App.CurrentFairProject.TaskType;
+            //T();
         }
 
         private async void T()

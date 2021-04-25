@@ -16,11 +16,6 @@ namespace HSEapp.Data.Fair
         {
             try
             {
-                int n = 1;
-                while (true)
-                {
-                    if (n == 1)
-                    {
                         var url = URL;
                         var web = new HtmlWeb();
                         var doc = web.Load(url);
@@ -51,14 +46,12 @@ namespace HSEapp.Data.Fair
                             element.TaskType = title[0].InnerText.Split(new string[] { "Способ постановки задач" }, StringSplitOptions.None)[1].Split(new string[] { "Необходимо" }, StringSplitOptions.None)[0];
 
 
-                            App.DatabaseCurrentFairProject.SaveProjectAsync(element);
+                            
                         }
                         catch
                         {
                         }
-                        n += 1;
-                    }
-                }
+                App.DatabaseCurrentFairProject.SaveProjectAsync(element);
             }
             catch
             {

@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using HSEapp.Data.Fair;
+using Xamarin.Essentials;
 
 namespace HSEapp.Pages.Fair
 {
@@ -29,10 +30,16 @@ namespace HSEapp.Pages.Fair
 
         void WhatIs_Clicked(System.Object sender, System.EventArgs e)
         {
+            Uri siteUri = new Uri("https://electives.hse.ru/project_proff");
+            Launcher.OpenAsync(siteUri);
         }
+
         void SignUpFor_Clicked(System.Object sender, System.EventArgs e)
         {
+            Uri siteUri = new Uri("https://www.hse.ru/inman/predpr");
+            Launcher.OpenAsync(siteUri);
         }
+
         void Notification_Clicked(System.Object sender, System.EventArgs e)
         {
         }
@@ -67,7 +74,7 @@ namespace HSEapp.Pages.Fair
                 //прописать получение информации из парсера определенного проекта
                 var currentFairParcer = new FairDetailParser();
                 currentFairParcer.pfHSEDetailedParse(fairProject.URL);
-                await DisplayAlert("2", "", "OK");
+                await DisplayAlert(App.CurrentFairProject.Description, "", "OK");
                 //var cfp = new FairProjectTable();
                 //cfp.Id = 0;
                 //cfp.JoinUntil = fairProject.JoinUntil;

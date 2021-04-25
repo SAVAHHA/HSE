@@ -17,11 +17,11 @@
                         <ColumnDefinition Width="3*"></ColumnDefinition>
                     </Grid.ColumnDefinitions>
 
-                    <Button Text="Поддержка школьников" Grid.Row="0" Grid.Column="0"></Button>
-                    <Button Text="Цифровое волонтерство" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"></Button>
+                    <Button Text="Поддержка школьников" x:Name="sudentsHelpButton" Clicked="sudentsHelpButton_Clicked" Grid.Row="0" Grid.Column="0"></Button>
+                    <Button Text="Цифровое волонтерство" x:Name="digitalVolonteerButton" Clicked="digitalVolonteerButton_Clicked" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2"></Button>
 
-                    <Button Text="Волонетрский центр НИУ ВШЭ" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></Button>
-                    <Button Text="Центр поддержки старшего поколения" Grid.Row="1" Grid.Column="2"></Button>
+                    <Button Text="Волонетрский центр НИУ ВШЭ" x:Name="HSEVoloteerCenterButton" Clicked="HSEVoloteerCenterButton_Clicked" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"></Button>
+                    <Button Text="Центр поддержки старшего поколения" x:Name="elderyPeopleCenterButton" Clicked="elderyPeopleCenterButton_Clicked" Grid.Row="1" Grid.Column="2"></Button>
                 </Grid>
 
                <!-- <ListView x:Name="VolonteerProjectListView"

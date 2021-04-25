@@ -19,8 +19,8 @@
             <ShellContent Title="Event" Route="event" ContentTemplate="{DataTemplate pages:Volonteer.VolonteerMainPage}"></ShellContent>
         </Tab>
 
-        <Tab Title="Отзывы" Icon="Event">
+        <!--<Tab Title="Отзывы" Icon="Event">
             <ShellContent Title="Event" Route="event" ContentTemplate="{DataTemplate pages:Review.ReviewMainPage}"></ShellContent>
-        </Tab>
+        </Tab>-->
     </TabBar>
 </Shell>
