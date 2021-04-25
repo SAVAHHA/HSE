@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using SQLite;
 
-namespace HSEapp.Data
+namespace HSEapp.Data.Fair
 {
     public class CurrentFairProjectDataBase
     {
@@ -12,30 +12,30 @@ namespace HSEapp.Data
         public CurrentFairProjectDataBase(string databasePath)
         {
             database = new SQLiteAsyncConnection(databasePath);
-            database.CreateTableAsync<FairProjectTable>().Wait();
+            database.CreateTableAsync<CurrentFairProjectTable>().Wait();
         }
-        public Task<List<FairProjectTable>> GetProjectsAsync()
+        public Task<List<CurrentFairProjectTable>> GetProjectsAsync()
         {
-            return database.Table<FairProjectTable>().ToListAsync();
+            return database.Table<CurrentFairProjectTable>().ToListAsync();
         }
 
-        public Task<int> SaveProjectAsync(FairProjectTable fairProject)
+        public Task<int> SaveProjectAsync(CurrentFairProjectTable fairProject)
         {
             return database.InsertAsync(fairProject);
         }
-        public Task<FairProjectTable> GetProjectAsync(int id)
+        public Task<CurrentFairProjectTable> GetProjectAsync(int id)
         {
-            return database.GetAsync<FairProjectTable>(id);
+            return database.GetAsync<CurrentFairProjectTable>(id);
         }
         public Task<int> DeleteProjectAsync(int id)
         {
-            return database.DeleteAsync<FairProjectTable>(id);
+            return database.DeleteAsync<CurrentFairProjectTable>(id);
         }
         public Task<int> DeleteAll()
         {
-            return database.DeleteAllAsync<FairProjectTable>();
+            return database.DeleteAllAsync<CurrentFairProjectTable>();
         }
-        public Task<int> UpdateAsync(FairProjectTable fairProject)
+        public Task<int> UpdateAsync(CurrentFairProjectTable fairProject)
         {
             return database.UpdateAsync(fairProject);
         }

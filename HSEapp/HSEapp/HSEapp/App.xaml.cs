@@ -5,6 +5,7 @@ using HSEapp.Pages;
 using HSEapp.Data;
 using System.IO;
 using System.Collections.Generic;
+using HSEapp.Data.Fair;
 
 namespace HSEapp
 {
@@ -55,11 +56,11 @@ namespace HSEapp
             }
         }
 
-        public static FairProjectTable CurrentFairProject
+        public static CurrentFairProjectTable CurrentFairProject
         {
             get
             {
-                var cfp = new FairProjectTable();
+                var cfp = new CurrentFairProjectTable();
                 if(DatabaseCurrentFairProject != null)
                 {
                     cfp = DatabaseCurrentFairProject.GetProjectAsync(0).Result;
@@ -72,8 +73,8 @@ namespace HSEapp
         {
             InitializeComponent();
             App.DatabaseFairProjects.DeleteAll();
-            var parcer = new Parser();
-            parcer.pfHSEParse();
+            var fairparcer = new FairParser();
+            fairparcer.pfHSEParse();
             MainPage = new MainPage();
         }
 

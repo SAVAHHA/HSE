@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace HSEapp.Pages
+namespace HSEapp.Pages.Event
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class EventMainPage : ContentPage
+    public partial class EvenDetailPage : ContentPage
     {
-        public EventMainPage()
+        public EvenDetailPage()
         {
             InitializeComponent();
         }

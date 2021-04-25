@@ -7,6 +7,7 @@ using HSEapp.Data;
 using HSEapp.Pages;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using HSEapp.Pages.Fair;
 
 namespace HSEapp
 {

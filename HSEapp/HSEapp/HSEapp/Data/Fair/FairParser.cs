@@ -5,9 +5,9 @@ using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
 
-namespace HSEapp.Data
+namespace HSEapp.Data.Fair
 {
-    public class Parser
+    public class FairParser
     {
         private List<pfHSEData> pfHSEData = new List<pfHSEData>();
         public void pfHSEParse()

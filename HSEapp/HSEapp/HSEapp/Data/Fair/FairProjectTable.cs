@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using SQLite;
 
-namespace HSEapp.Data
+namespace HSEapp.Data.Fair
 {
     [Table("FairProject")]
     public class FairProjectTable

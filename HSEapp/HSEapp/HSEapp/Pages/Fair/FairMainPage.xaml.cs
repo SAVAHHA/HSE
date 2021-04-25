@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-using HSEapp.Data;
+using HSEapp.Data.Fair;
 
-namespace HSEapp.Pages
+namespace HSEapp.Pages.Fair
 {
     // Learn more about making custom code visible in the Xamarin.Forms previewer
     // by visiting https://aka.ms/xamarinforms-previewer
@@ -63,18 +63,24 @@ namespace HSEapp.Pages
             FairProjectTable fairProject = e.Item as FairProjectTable;
             if (fairProject != null)
             {
-                var cfp = new FairProjectTable();
-                cfp.Id = 0;
-                cfp.JoinUntil = fairProject.JoinUntil;
-                cfp.Name = fairProject.Name;
-                cfp.OPs = fairProject.OPs;
-                cfp.Period = fairProject.Period;
-                cfp.URL = fairProject.URL;
-                cfp.CreditAmount = fairProject.CreditAmount;
-                cfp.Curator = fairProject.Curator;
-                await App.DatabaseCurrentFairProject.DeleteAll();
-                await App.DatabaseCurrentFairProject.SaveProjectAsync(cfp);
-                await Shell.Current.GoToAsync($"fairDetailPage?projectName={fairProject.Name}");
+                await DisplayAlert("1", "", "OK");
+                //прописать получение информации из парсера определенного проекта
+                var currentFairParcer = new FairDetailParser();
+                currentFairParcer.pfHSEDetailedParse(fairProject.URL);
+                await DisplayAlert("2", "", "OK");
+                //var cfp = new FairProjectTable();
+                //cfp.Id = 0;
+                //cfp.JoinUntil = fairProject.JoinUntil;
+                //cfp.Name = fairProject.Name;
+                //cfp.OPs = fairProject.OPs;
+                //cfp.Period = fairProject.Period;
+                //cfp.URL = fairProject.URL;
+                //cfp.CreditAmount = fairProject.CreditAmount;
+                // cfp.Curator = fairProject.Curator;
+                // await App.DatabaseCurrentFairProject.DeleteAll();
+                //await App.DatabaseCurrentFairProject.SaveProjectAsync(cfp);
+                //await Shell.Current.GoToAsync($"fairDetailPage?projectURL={fairProject.URL}");
+                await Shell.Current.GoToAsync("fairDetailPage");
             }
         }
 

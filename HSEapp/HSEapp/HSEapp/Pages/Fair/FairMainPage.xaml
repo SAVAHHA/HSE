@@ -6,11 +6,11 @@
              mc:Ignorable="d"
              xmlns:view="clr-namespace:HSEapp.Views"
              xmlns:local="clr-namespace:HSEapp"
-             x:Class="HSEapp.Pages.FairMainPage">
+             x:Class="HSEapp.Pages.Fair.FairMainPage">
     
-    <Shell.TitleView>
-        <view:FairBarView></view:FairBarView>
-    </Shell.TitleView>
+    <!--<Shell.TitleView>
+        <view:BarView></view:BarView>
+    </Shell.TitleView>-->
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -66,7 +66,7 @@
             <ScrollView>
                 <StackLayout x:Name="mainStackLayout">
                     <StackLayout x:Name="InfoStackLayout">
-                        <StackLayout Spacing="10" Margin="20,0,20,0"  Orientation="Horizontal">
+                        <StackLayout Spacing="10" Margin="20,10,20,0"  Orientation="Horizontal">
                             <Button BackgroundColor="LightPink" Text="Подписаться на уведомления" TextColor="Black" FontSize="10" WidthRequest="250" CornerRadius="10" Clicked="Sign_Clicked" ></Button>
                             <ImageButton Source="Notification.png" HeightRequest="25"  Margin="0,0,0,0" Clicked="Notification_Clicked"  ></ImageButton>
                         </StackLayout>
@@ -87,48 +87,48 @@
                               HasUnevenRows="True"
                               ItemsSource="{x:Static local:App.FairProjects}"
                               ItemTapped="FairProjectListView_ItemTapped">
-                        <ListView.ItemTemplate>
-                            <DataTemplate>
-                                <ViewCell>
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto"></RowDefinition>
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="*"></ColumnDefinition>
-                                        </Grid.ColumnDefinitions>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
 
-                                        <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="LightPink" VerticalOptions="Center" Padding="5" HorizontalOptions="Fill" CornerRadius="34">
-                                            <StackLayout Spacing="3">
-                                                <Label Text="{Binding Name}"></Label>
-                                                <StackLayout Orientation="Horizontal" Padding="0">
-                                                    <Label>Рекомендуемые образовательные программы:</Label>
-                                                    <Label Text="{Binding OPs}"></Label>
-                                                </StackLayout>
-                                                <StackLayout Orientation="Horizontal" Padding="0" >
-                                                    <Label>Срок записи на проект истекает:</Label>
-                                                    <Label Text="{Binding JoinUntil}"></Label>
-                                                </StackLayout>
-                                                <StackLayout Orientation="Horizontal" Padding="0">
-                                                    <Label>Сроки реализации проекта:</Label>
-                                                    <Label Text="{Binding Period}"></Label>
-                                                </StackLayout>
-                                                <StackLayout Orientation="Horizontal" Padding="0" >
-                                                    <Label>Количество кредитов:</Label>
-                                                    <Label Text="{Binding CreditAmount}"></Label>
-                                                </StackLayout>
-                                                <StackLayout Orientation="Horizontal" Padding="0">
-                                                    <Label>Руководитель:</Label>
-                                                    <Label Text="{Binding Leader}"></Label>
-                                                </StackLayout>
+                                        <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="#e0b0ae" VerticalOptions="Center" Margin="10" HorizontalOptions="Fill" CornerRadius="34">
+                                        <StackLayout Spacing="3">
+                                            <Label Text="{Binding Name}"></Label>
+                                            <StackLayout Orientation="Horizontal" Padding="0">
+                                                <Label>Рекомендуемые образовательные программы:</Label>
+                                                <Label Text="{Binding OPs}"></Label>
                                             </StackLayout>
-                                        </Frame>
-                                    </Grid>
-                                </ViewCell>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </StackLayout>
+                                            <StackLayout Orientation="Horizontal" Padding="0" >
+                                                <Label>Срок записи на проект истекает:</Label>
+                                                <Label Text="{Binding JoinUntil}"></Label>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" Padding="0">
+                                                <Label>Сроки реализации проекта:</Label>
+                                                <Label Text="{Binding Period}"></Label>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" Padding="0" >
+                                                <Label>Количество кредитов:</Label>
+                                                <Label Text="{Binding CreditAmount}"></Label>
+                                            </StackLayout>
+                                            <StackLayout Orientation="Horizontal" Padding="0">
+                                                <Label>Руководитель:</Label>
+                                                <Label Text="{Binding Leader}"></Label>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </Frame>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
             </ScrollView>
         </Grid>
     </ContentPage.Content>

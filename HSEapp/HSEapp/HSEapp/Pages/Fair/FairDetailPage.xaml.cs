@@ -7,25 +7,25 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace HSEapp.Pages
+namespace HSEapp.Pages.Fair
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    [QueryProperty("Name", "projectName")]
+    //[QueryProperty("URL", "projectURL")]
     public partial class FairDetailPage : ContentPage
     {
-        public string _name { get; set; }
-        public string Name
-        {
-            set
-            {
-                BindingContext = App.FairProjects.FirstOrDefault(m => m.Name == Uri.UnescapeDataString(value));
-                _name = Uri.UnescapeDataString(value);
-            }
-            get
-            {
-                return _name;
-            }
-        }
+       // public string _url { get; set; }
+       // public string URL
+       // {
+         //   set
+           // {
+                //BindingContext = App.FairProjects.FirstOrDefault(m => m.N == Uri.UnescapeDataString(value));
+                //_url = Uri.UnescapeDataString(value);
+            //}
+          //  get
+           // {
+           //     return _url;
+           // }
+       // }
         public FairDetailPage()
         {
             InitializeComponent();

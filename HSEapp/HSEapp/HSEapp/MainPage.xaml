@@ -3,17 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              TabBarBackgroundColor="White"
              TabBarTitleColor="#DC143C"
-             Shell.BackgroundColor="White"
              xmlns:pages="clr-namespace:HSEapp.Pages"
              x:Class="HSEapp.MainPage">
 
     <TabBar>
         <Tab Title="Ярмарка" Icon="Fair">
-            <ShellContent Title="Fair" Route="fair" ContentTemplate="{DataTemplate pages:FairMainPage}"></ShellContent>
+            <ShellContent Title="Fair" Route="fair" ContentTemplate="{DataTemplate pages:Fair.FairMainPage}"></ShellContent>
         </Tab>
 
         <Tab Title="Мероприятия" Icon="Event">
-            <ShellContent Title="Event" Route="event" ContentTemplate="{DataTemplate pages:EventMainPage}"></ShellContent>
+            <ShellContent Title="Event" Route="event" ContentTemplate="{DataTemplate pages:Event.EventMainPage}"></ShellContent>
+        </Tab>
+
+        <Tab Title="Волонтерская деятельность" Icon="Event">
+            <ShellContent Title="Event" Route="event" ContentTemplate="{DataTemplate pages:Volonteer.VolonteerMainPage}"></ShellContent>
+        </Tab>
+
+        <Tab Title="Отзывы" Icon="Event">
+            <ShellContent Title="Event" Route="event" ContentTemplate="{DataTemplate pages:Review.ReviewMainPage}"></ShellContent>
         </Tab>
     </TabBar>
 </Shell>

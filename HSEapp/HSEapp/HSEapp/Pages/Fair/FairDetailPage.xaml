@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HSEapp.Pages.FairDetailPage">
+             x:Class="HSEapp.Pages.Fair.FairDetailPage">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label x:Name="ProjectDescriptionLabel" Text="{Binding Name}" Margin="10"></Label>
+                <Label x:Name="ProjectDescriptionLabel" Text="{Binding URL}" Margin="10"></Label>
                 
                 <Grid>
                     <Grid.RowDefinitions>
