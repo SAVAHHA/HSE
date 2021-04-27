@@ -4,7 +4,9 @@ using System.Text;
 
 namespace HSEapp.Data.Volonteer
 {
-    class VolonteerProjectTable
+    public class VolonteerProjectTable
     {
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }

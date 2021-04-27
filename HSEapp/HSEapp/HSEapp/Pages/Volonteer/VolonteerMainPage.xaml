@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HSEapp.Pages.Volonteer.VolonteerMainPage">
+             x:Class="HSEapp.Pages.Volonteer.VolonteerMainPage"
+             xmlns:local="clr-namespace:HSEapp">
    
     <ContentPage.Content>
         <ScrollView>
@@ -24,10 +25,9 @@
                     <Button Text="Центр поддержки старшего поколения" x:Name="elderyPeopleCenterButton" Clicked="elderyPeopleCenterButton_Clicked" Grid.Row="1" Grid.Column="2"></Button>
                 </Grid>
 
-               <!-- <ListView x:Name="VolonteerProjectListView"
+               <ListView x:Name="VolonteerProjectListView"
                               HasUnevenRows="True"
-                              ItemsSource="{x:Static local:App.FairProjects}"
-                              ItemTapped="FairProjectListView_ItemTapped">
+                              ItemsSource="{x:Static local:App.VolonteerProjects}">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -43,24 +43,8 @@
                                         <StackLayout Spacing="3">
                                             <Label Text="{Binding Name}"></Label>
                                             <StackLayout Orientation="Horizontal" Padding="0">
-                                                <Label>Рекомендуемые образовательные программы:</Label>
-                                                <Label Text="{Binding OPs}"></Label>
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal" Padding="0" >
-                                                <Label>Срок записи на проект истекает:</Label>
-                                                <Label Text="{Binding JoinUntil}"></Label>
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal" Padding="0">
-                                                <Label>Сроки реализации проекта:</Label>
-                                                <Label Text="{Binding Period}"></Label>
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal" Padding="0" >
-                                                <Label>Количество кредитов:</Label>
-                                                <Label Text="{Binding CreditAmount}"></Label>
-                                            </StackLayout>
-                                            <StackLayout Orientation="Horizontal" Padding="0">
-                                                <Label>Руководитель:</Label>
-                                                <Label Text="{Binding Leader}"></Label>
+                                                <Label>Описание:</Label>
+                                                <Label Text="{Binding Description}"></Label>
                                             </StackLayout>
                                         </StackLayout>
                                     </Frame>
@@ -68,7 +52,7 @@
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView> -->
+                </ListView> 
             </StackLayout>           
         </ScrollView>
     </ContentPage.Content>

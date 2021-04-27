@@ -4,7 +4,11 @@ using System.Text;
 
 namespace HSEapp.Data.Event
 {
-    class EventProjectTable
+    public class EventProjectTable
     {
+        public string Name { get; set; }
+        public string Date { get; set; }
+        public string URL { get; set; }
+        public string Time { get; set; }
     }
 }

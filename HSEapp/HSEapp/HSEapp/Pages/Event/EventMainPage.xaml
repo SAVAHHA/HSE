@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HSEapp"
              x:Class="HSEapp.Pages.Event.EventMainPage">
     <ContentPage.Content>
         <Grid>
@@ -12,11 +13,11 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Row="1" Grid.Column="0">
+            <Grid Grid.Row="0" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
-                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition></ColumnDefinition>
@@ -27,6 +28,40 @@
                 <Button Grid.Row="1" Grid.Column="1" Text="Спорт и активный отдых" x:Name="sportButton" Clicked="sportButton_Clicked"></Button>
                 <Button Grid.Row="2" Grid.Column="1" Text="Массовые открытые онлайн курсы" x:Name="openCoursesButton" Clicked="openCoursesButton_Clicked"></Button>
             </Grid>
+
+            <ListView x:Name="VolonteerProjectListView"
+                      Grid.Row="1" Grid.Column="0"
+                              HasUnevenRows="True"
+                              ItemsSource="{x:Static local:App.EventProjects}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"></RowDefinition>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+
+                                <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="#e0b0ae" VerticalOptions="Center" Margin="10" HorizontalOptions="Fill" CornerRadius="34">
+                                    <StackLayout Spacing="3">
+                                        <Label Text="{Binding Name}"></Label>
+                                        <StackLayout Orientation="Horizontal" Padding="0">
+                                            <Label>Сроки реализации проекта:</Label>
+                                            <Label Text="{Binding Date}"></Label>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Padding="0" >
+                                            <Label>Количество кредитов:</Label>
+                                            <Label Text="{Binding Time}"></Label>
+                                        </StackLayout>
+                                    </StackLayout>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </Grid>
     </ContentPage.Content>
 </ContentPage>

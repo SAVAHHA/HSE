@@ -70,11 +70,11 @@ namespace HSEapp.Pages.Fair
             FairProjectTable fairProject = e.Item as FairProjectTable;
             if (fairProject != null)
             {
-                await DisplayAlert("1", "", "OK");
+               // await DisplayAlert("1", "", "OK");
                 //прописать получение информации из парсера определенного проекта
                 var currentFairParcer = new FairDetailParser();
                 currentFairParcer.pfHSEDetailedParse(fairProject.URL);
-                await DisplayAlert(App.CurrentFairProject.Description, "", "OK");
+               // await DisplayAlert(App.CurrentFairProject.Description, "", "OK");
                 //var cfp = new FairProjectTable();
                 //cfp.Id = 0;
                 //cfp.JoinUntil = fairProject.JoinUntil;
