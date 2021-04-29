@@ -6,9 +6,46 @@
              mc:Ignorable="d"
              x:Class="HSEapp.App">
     <Application.Resources>
-        <DataTemplate x:Key="FairProjectTemplate">
-            <Grid Padding="10">
-                
+        <DataTemplate x:Key="FairProjectSearchTemplate">
+            <Grid Padding="10" ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                       Text="{Binding Name}"></Label>
+
+                <Label Grid.Column="1" 
+                       Text="{Binding CreditAmount}" 
+                       FontAttributes="Bold" />
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="VolonteerProjectSearchTemplate">
+            <Grid Padding="10" ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                       Text="{Binding Name}"></Label>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="EventProjectSearchTemplate">
+            <Grid Padding="10" ColumnSpacing="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Grid.Column="0"
+                       Text="{Binding Name}"></Label>
+
+                <Label Grid.Column="1" 
+                       Text="{Binding Date}" 
+                       FontAttributes="Bold" />
             </Grid>
         </DataTemplate>
     </Application.Resources>

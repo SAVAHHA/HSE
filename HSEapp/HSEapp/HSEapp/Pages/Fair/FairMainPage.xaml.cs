@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using HSEapp.Data.Fair;
 using Xamarin.Essentials;
+using Plugin.LocalNotifications;
 
 namespace HSEapp.Pages.Fair
 {
@@ -94,6 +95,11 @@ namespace HSEapp.Pages.Fair
         private void CloseButton_Clicked(object sender, EventArgs e)
         {
             InfoStackLayout.IsVisible = false;
+        }
+
+        private void notificationFairButton_Clicked(object sender, EventArgs e)
+        {
+            CrossLocalNotifications.Current.Show("HSEapp", "Теперь будут приходить уведомления при обновлении проектов.", 0, DateTime.Now.AddSeconds(5));
         }
     }
 }

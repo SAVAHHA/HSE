@@ -2,12 +2,20 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:HSEapp"
+             xmlns:controls="clr-namespace:HSEapp.Data.Event"
              x:Class="HSEapp.Pages.Event.EventMainPage">
+    <Shell.SearchHandler>
+        <controls:EventSearchHandler Placeholder="Поиск"
+                                    ShowsResults="True"
+                                    ItemTemplate="{StaticResource EventProjectSearchTemplate}"
+                                    EventProjects="{x:Static local:App.EventProjects}"></controls:EventSearchHandler>
+    </Shell.SearchHandler>
+    
     <ContentPage.Content>
-        <Grid>
+        <Grid HorizontalOptions="Fill">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -25,8 +33,11 @@
                 </Grid.ColumnDefinitions>
 
                 <Button Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" Text="Студенческая жизнь" x:Name="studLiveButton" Clicked="studLiveButton_Clicked"></Button>
+                <!--<ImageButton Source="Group129" Grid.Row="1" Grid.RowSpan="2" Grid.Column="0" x:Name="studLiveButton" Clicked="studLiveButton_Clicked"></ImageButton>-->
                 <Button Grid.Row="1" Grid.Column="1" Text="Спорт и активный отдых" x:Name="sportButton" Clicked="sportButton_Clicked"></Button>
+                <!--<ImageButton Source="Group127" Grid.Row="1" Grid.Column="1" x:Name="sportButton" Clicked="sportButton_Clicked"></ImageButton>-->
                 <Button Grid.Row="2" Grid.Column="1" Text="Массовые открытые онлайн курсы" x:Name="openCoursesButton" Clicked="openCoursesButton_Clicked"></Button>
+                <!--<ImageButton Source="Group128" Grid.Row="2" Grid.Column="1" x:Name="openCoursesButton" Clicked="openCoursesButton_Clicked"></ImageButton>-->
             </Grid>
 
             <ListView x:Name="VolonteerProjectListView"
@@ -43,17 +54,13 @@
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-
-                                <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="#e0b0ae" VerticalOptions="Center" Margin="10" HorizontalOptions="Fill" CornerRadius="34">
+                                <!--#e0b0ae-->
+                                <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="White" BorderColor="#DC143C" VerticalOptions="Center" Margin="10" HorizontalOptions="Fill" CornerRadius="34">
                                     <StackLayout Spacing="3">
-                                        <Label Text="{Binding Name}"></Label>
+                                        <Label Text="{Binding Name}" TextColor="Black"></Label>
                                         <StackLayout Orientation="Horizontal" Padding="0">
-                                            <Label>Сроки реализации проекта:</Label>
-                                            <Label Text="{Binding Date}"></Label>
-                                        </StackLayout>
-                                        <StackLayout Orientation="Horizontal" Padding="0" >
-                                            <Label>Количество кредитов:</Label>
-                                            <Label Text="{Binding Time}"></Label>
+                                            <Label TextColor="Black">Сроки реализации проекта:</Label>
+                                            <Label Text="{Binding Date}" TextColor="Black"></Label>
                                         </StackLayout>
                                     </StackLayout>
                                 </Frame>

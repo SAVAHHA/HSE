@@ -3,20 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HSEapp.Views.BarView">
   <ContentView.Content>
-        <Grid HorizontalOptions="Fill">
-            <Grid.RowDefinitions>
-                <RowDefinition></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"></ColumnDefinition>
-                <ColumnDefinition Width="4*"></ColumnDefinition>
-                <ColumnDefinition Width="1*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-
-            <StackLayout Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="0">
-                <Image Source="HI" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Aspect="Fill"></Image>
-            </StackLayout>
-            <!--<Image Grid.Column="0" Grid.Row="0" BackgroundColor="Transparent" Source="HSE" HorizontalOptions="Center" VerticalOptions="Center" HeightRequest="45" WidthRequest="45"></Image>-->
+        <Grid HorizontalOptions="Fill" BackgroundColor="DarkRed">
         </Grid>
   </ContentView.Content>
 </ContentView>

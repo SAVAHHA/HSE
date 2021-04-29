@@ -5,14 +5,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              xmlns:view="clr-namespace:HSEapp.Views"
+             xmlns:controls="clr-namespace:HSEapp.Data.Fair"
              xmlns:local="clr-namespace:HSEapp"
              x:Class="HSEapp.Pages.Fair.FairMainPage">
-    
-    <!--<Shell.TitleView>
-        <view:BarView></view:BarView>
-    </Shell.TitleView>-->
-
-    <ContentPage.Resources>
+    <!--<ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="buttonStyle" TargetType="Button">
                 <Setter Property="TextColor" Value="#000000" />
@@ -31,7 +27,7 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
 
-                <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="LightPink" VerticalOptions="Center" Padding="5" HorizontalOptions="Fill" CornerRadius="34">
+                <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="White" BorderColor="LightPink" VerticalOptions="Center" Padding="5" HorizontalOptions="Fill" CornerRadius="34">
                     <StackLayout Spacing="3">
                         <Label Text="{Binding Name}"></Label>
                         <StackLayout Orientation="Horizontal" Padding="0">
@@ -59,9 +55,17 @@
             </Grid>
         </DataTemplate>
 
-        </ContentPage.Resources>
+        </ContentPage.Resources>-->
+
+    <Shell.SearchHandler>
+        <controls:FairSearchHandler Placeholder="Поиск"
+                                    ShowsResults="True"
+                                    ItemTemplate="{StaticResource FairProjectSearchTemplate}"
+                                    FairProjects="{x:Static local:App.FairProjects}"></controls:FairSearchHandler>
+    </Shell.SearchHandler>
 
     <ContentPage.Content>
+
         <Grid>
             <ScrollView>
                 <StackLayout x:Name="mainStackLayout">
@@ -74,21 +78,24 @@
                         </Grid.ColumnDefinitions>
 
                         <StackLayout Grid.Column="0" Grid.Row="0" x:Name="InfoStackLayout">
-                            <StackLayout Spacing="10" Margin="20,10,20,0"  Orientation="Horizontal">
+                            <!--<StackLayout Spacing="10" Margin="20,10,20,0"  Orientation="Horizontal">
                                 <Button BackgroundColor="LightPink" Text="Подписаться на уведомления" TextColor="Black" FontSize="10" WidthRequest="250" CornerRadius="10" Clicked="Sign_Clicked" ></Button>
                                 <ImageButton Source="Notification.png" HeightRequest="25"  Margin="0,0,0,0" Clicked="Notification_Clicked"  ></ImageButton>
-                            </StackLayout>
-                            <StackLayout Spacing="28" Orientation="Horizontal" Margin="20,25,20,0">
+                            </StackLayout>-->
+                            <StackLayout Spacing="15" Orientation="Horizontal" Margin="20,25,20,0">
                                 <ImageButton Source="WhatIs" WidthRequest="126" Clicked="WhatIs_Clicked"></ImageButton>
                                 <ImageButton Source="SignUpFor" WidthRequest="126" Clicked="SignUpFor_Clicked"  ></ImageButton>
+                                <!--<Button x:Name="notificationFairButton" Text="." BackgroundColor="#e0b0ae" HeightRequest="20" WidthRequest="20" Clicked="notificationFairButton_Clicked"></Button>-->
+                                <ImageButton Source="Notification.png" BackgroundColor="Transparent" InputTransparent="True" HeightRequest="25"  Margin="0,0,0,0" Clicked="notificationFairButton_Clicked"  ></ImageButton>
+                                <ImageButton Source="Filtr" BackgroundColor="Transparent" InputTransparent="True" Margin="0,0,0,0" HorizontalOptions="Start" WidthRequest="26" Clicked="Filtr_Clicked" ></ImageButton>
                             </StackLayout>
                             <StackLayout Margin="20,5,20,0">
                                 <ImageButton Source="TakeTheCourseOnline"  Margin="0,0,0,0"></ImageButton>
                             </StackLayout>
-                            <StackLayout Margin="20,25,20,0" Orientation="Horizontal">
-                                <ImageButton Source="Filtr" Margin="0,0,0,10" HorizontalOptions="Start" WidthRequest="26" Clicked="Filtr_Clicked" ></ImageButton>
+                            <!--<StackLayout Margin="20,25,20,0" Orientation="Horizontal">
+                                
                                 <Label Text="Сортировать по:" FontSize="11" TextColor="Black" Margin="0,5,0,0" ></Label>
-                            </StackLayout>
+                            </StackLayout>-->
                             <!--<Button Text="Скрыть" x:Name="CloseButton" Clicked="CloseButton_Clicked"></Button>-->
                         </StackLayout>
                     </Grid>
@@ -108,30 +115,26 @@
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
-                                        <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="#e0b0ae" VerticalOptions="Center" Margin="10" HorizontalOptions="Fill" CornerRadius="34">
+                                        <Frame Grid.Column="0" Grid.Row="0" HasShadow="True" BackgroundColor="White" BorderColor="#DC143C" VerticalOptions="Center" Margin="10" HorizontalOptions="Fill" CornerRadius="34">
                                         <StackLayout Spacing="3">
-                                            <Label Text="{Binding Name}"></Label>
+                                            <Label Text="{Binding Name}" TextColor="Black"></Label>
                                             <StackLayout Orientation="Horizontal" Padding="0">
-                                                <Label>Рекомендуемые образовательные программы:</Label>
-                                                <Label Text="{Binding OPs}"></Label>
+                                                <Label TextColor="Black">Рекомендуемые образовательные программы:</Label>
+                                                <Label Text="{Binding OPs}" TextColor="Black"></Label>
                                             </StackLayout>
                                             <StackLayout Orientation="Horizontal" Padding="0" >
-                                                <Label>Срок записи на проект истекает:</Label>
-                                                <Label Text="{Binding JoinUntil}"></Label>
+                                                <Label TextColor="Black">Срок записи на проект истекает:</Label>
+                                                <Label Text="{Binding JoinUntil}" TextColor="Black"></Label>
                                             </StackLayout>
                                             <StackLayout Orientation="Horizontal" Padding="0">
-                                                <Label>Сроки реализации проекта:</Label>
-                                                <Label Text="{Binding Period}"></Label>
+                                                <Label TextColor="Black">Сроки реализации проекта:</Label>
+                                                <Label Text="{Binding Period}" TextColor="Black"></Label>
                                             </StackLayout>
                                             <StackLayout Orientation="Horizontal" Padding="0" >
-                                                <Label>Количество кредитов:</Label>
-                                                <Label Text="{Binding CreditAmount}"></Label>
+                                                <Label TextColor="Black">Количество кредитов:</Label>
+                                                <Label Text="{Binding CreditAmount}" TextColor="Black"></Label>
                                             </StackLayout>
-                                            <StackLayout Orientation="Horizontal" Padding="0">
-                                                <Label>Руководитель:</Label>
-                                                <Label Text="{Binding Leader}"></Label>
-                                            </StackLayout>
-                                        </StackLayout>
+                                        </StackLayout>                                         
                                     </Frame>
                                 </Grid>
                             </ViewCell>

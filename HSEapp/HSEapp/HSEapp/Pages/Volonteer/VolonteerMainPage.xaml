@@ -2,7 +2,14 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HSEapp.Pages.Volonteer.VolonteerMainPage"
+             xmlns:controls="clr-namespace:HSEapp.Data.Volonteer"
              xmlns:local="clr-namespace:HSEapp">
+    <Shell.SearchHandler>
+        <controls:VolonteerSearchHandler Placeholder="Поиск"
+                                    ShowsResults="True"
+                                    ItemTemplate="{StaticResource VolonteerProjectSearchTemplate}"
+                                    VolonteerProjects="{x:Static local:App.VolonteerProjects}"></controls:VolonteerSearchHandler>
+    </Shell.SearchHandler>
    
     <ContentPage.Content>
         <ScrollView>
@@ -39,12 +46,12 @@
                                         <ColumnDefinition Width="*"></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
 
-                                    <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="#e0b0ae" VerticalOptions="Center" Margin="10" HorizontalOptions="Fill" CornerRadius="34">
+                                    <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="White" BorderColor="#DC143C" VerticalOptions="Center" Margin="10" HorizontalOptions="Fill" CornerRadius="34">
                                         <StackLayout Spacing="3">
-                                            <Label Text="{Binding Name}"></Label>
+                                            <Label Text="{Binding Name}" TextColor="Black"></Label>
                                             <StackLayout Orientation="Horizontal" Padding="0">
-                                                <Label>Описание:</Label>
-                                                <Label Text="{Binding Description}"></Label>
+                                                <Label TextColor="Black">Описание:</Label>
+                                                <Label Text="{Binding Description}" TextColor="Black"></Label>
                                             </StackLayout>
                                         </StackLayout>
                                     </Frame>
