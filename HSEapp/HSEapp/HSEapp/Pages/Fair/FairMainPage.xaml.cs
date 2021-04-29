@@ -16,6 +16,7 @@ namespace HSEapp.Pages.Fair
     [DesignTimeVisible(false)]
     public partial class FairMainPage : ContentPage
     {
+        public static List<FairProjectTable> filteredFairProjects { get; set; }
         public FairMainPage()
         {
             InitializeComponent();
@@ -52,6 +53,7 @@ namespace HSEapp.Pages.Fair
         }
         void Filtr_Clicked(System.Object sender, System.EventArgs e)
         {
+            filtrStackLayout.IsVisible = true;
         }
         void SortByAddData_Clicked(System.Object sender, System.EventArgs e)
         {
@@ -100,6 +102,19 @@ namespace HSEapp.Pages.Fair
         private void notificationFairButton_Clicked(object sender, EventArgs e)
         {
             CrossLocalNotifications.Current.Show("HSEapp", "Теперь будут приходить уведомления при обновлении проектов.", 0, DateTime.Now.AddSeconds(5));
+        }
+
+        private void closeButton_Clicked_1(object sender, EventArgs e)
+        {
+            filtrStackLayout.IsVisible = false;
+        }
+
+        private void searchButton_Clicked(object sender, EventArgs e)
+        {
+            var ops = OPsEntry.Text;
+            var date = dateDataPicker.Date;
+
+            FairProjectListView.ItemsSource = App.FairProjects.Where(project => project.OPs.Contains(ops));
         }
     }
 }

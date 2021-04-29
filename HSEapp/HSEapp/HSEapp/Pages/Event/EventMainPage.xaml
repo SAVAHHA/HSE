@@ -57,7 +57,7 @@
                                 <!--#e0b0ae-->
                                 <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="White" BorderColor="#DC143C" VerticalOptions="Center" Margin="10" HorizontalOptions="Fill" CornerRadius="34">
                                     <StackLayout Spacing="3">
-                                        <Label Text="{Binding Name}" TextColor="Black"></Label>
+                                        <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="Black"></Label>
                                         <StackLayout Orientation="Horizontal" Padding="0">
                                             <Label TextColor="Black">Сроки реализации проекта:</Label>
                                             <Label Text="{Binding Date}" TextColor="Black"></Label>

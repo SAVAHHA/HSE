@@ -86,11 +86,20 @@
                                 <ImageButton Source="WhatIs" WidthRequest="126" Clicked="WhatIs_Clicked"></ImageButton>
                                 <ImageButton Source="SignUpFor" WidthRequest="126" Clicked="SignUpFor_Clicked"  ></ImageButton>
                                 <!--<Button x:Name="notificationFairButton" Text="." BackgroundColor="#e0b0ae" HeightRequest="20" WidthRequest="20" Clicked="notificationFairButton_Clicked"></Button>-->
-                                <ImageButton Source="Notification.png" BackgroundColor="Transparent" InputTransparent="True" HeightRequest="25"  Margin="0,0,0,0" Clicked="notificationFairButton_Clicked"  ></ImageButton>
-                                <ImageButton Source="Filtr" BackgroundColor="Transparent" InputTransparent="True" Margin="0,0,0,0" HorizontalOptions="Start" WidthRequest="26" Clicked="Filtr_Clicked" ></ImageButton>
+                                <ImageButton Source="Notification.png" BackgroundColor="Transparent" HeightRequest="25"  Margin="0,0,0,0" Clicked="notificationFairButton_Clicked"  ></ImageButton>
+                                <ImageButton Source="Filtr" BackgroundColor="Transparent" Margin="0,0,0,0" HorizontalOptions="Start" WidthRequest="26" Clicked="Filtr_Clicked" ></ImageButton>
                             </StackLayout>
                             <StackLayout Margin="20,5,20,0">
                                 <ImageButton Source="TakeTheCourseOnline"  Margin="0,0,0,0"></ImageButton>
+                            </StackLayout>
+
+                            <StackLayout x:Name="filtrStackLayout" IsVisible="false">
+                                <Label Text="Образовательные программы:"></Label>
+                                <Entry x:Name="OPsEntry"></Entry>
+                                <Label Text="Дата проведения"></Label>
+                                <DatePicker x:Name="dateDataPicker"></DatePicker>
+                                <Button Text="Поиск" BackgroundColor="#e0b0ae" x:Name="searchButton" HorizontalOptions="Center" Clicked="searchButton_Clicked"></Button>
+                                <Button Text="X" x:Name="closeButton" BackgroundColor="Transparent"  HorizontalOptions="End" Margin="10" Clicked="closeButton_Clicked_1"></Button>
                             </StackLayout>
                             <!--<StackLayout Margin="20,25,20,0" Orientation="Horizontal">
                                 
@@ -117,7 +126,7 @@
 
                                         <Frame Grid.Column="0" Grid.Row="0" HasShadow="True" BackgroundColor="White" BorderColor="#DC143C" VerticalOptions="Center" Margin="10" HorizontalOptions="Fill" CornerRadius="34">
                                         <StackLayout Spacing="3">
-                                            <Label Text="{Binding Name}" TextColor="Black"></Label>
+                                            <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="Black"></Label>
                                             <StackLayout Orientation="Horizontal" Padding="0">
                                                 <Label TextColor="Black">Рекомендуемые образовательные программы:</Label>
                                                 <Label Text="{Binding OPs}" TextColor="Black"></Label>

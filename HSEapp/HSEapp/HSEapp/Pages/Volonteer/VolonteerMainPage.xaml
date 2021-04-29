@@ -48,7 +48,7 @@
 
                                     <Frame Grid.Column="0" Grid.Row="0" BackgroundColor="White" BorderColor="#DC143C" VerticalOptions="Center" Margin="10" HorizontalOptions="Fill" CornerRadius="34">
                                         <StackLayout Spacing="3">
-                                            <Label Text="{Binding Name}" TextColor="Black"></Label>
+                                            <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="Black"></Label>
                                             <StackLayout Orientation="Horizontal" Padding="0">
                                                 <Label TextColor="Black">Описание:</Label>
                                                 <Label Text="{Binding Description}" TextColor="Black"></Label>
